@@ -24,8 +24,6 @@ print('hello,', name)
 
 # 特殊字符\隔开
 
-
-
 print('I\'m ok.')
 
 print('I\'m learning\nPython.')
