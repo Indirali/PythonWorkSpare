@@ -16,5 +16,9 @@ name = input()
 
 print(name)
 
+# 加入输入时提示信息
 
+name = input('please enter your name: ')
+
+print('hello,', name)
 
