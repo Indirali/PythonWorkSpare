@@ -27,8 +27,9 @@ True or False
 not True
 5 > 3 and 3 < 1
 
-age = input()
-if int(age) >= 18:
+age = int(input("输入年龄："))
+
+if age >= 18:
     print("adult")
 else:
     print("teenager")
@@ -55,4 +56,11 @@ print(10/3)
 # 除法 //表示计算结果是整数
 print(9//3)
 print(10//3)
+
+# 数据格式化
+print("Hello, %s" % "world")
+print("Hi, %s, you have $%d." % ("Michael", 10000))
+
+# %d 整数  %f 浮点数  %s 字符串类型 %x 十六进制整数
+
 
