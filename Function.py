@@ -156,3 +156,23 @@ person('Jack', 24, city='Beijing', job='Engineer')
 # 命名的关键字参数是为了限制调用者可以传入的参数名，同时可以提供默认值。
 #
 # 定义命名的关键字参数在没有可变参数的情况下不要忘了写分隔符*，否则定义的将是位置参数
+
+# 递归
+
+def fact(n):
+    if n == 1:
+        return 1
+    return n * fact(n - 1)
+
+
+fact(5)
+
+
+def fact(n):
+    return fact_iter(n, 1)
+
+
+def fact_iter(num, product):
+    if num == 1:
+        return product
+    return fact_iter(num - 1, num * product)
