@@ -28,6 +28,7 @@ def my_abs(x):
 def power(x):
     return x * x
 
+
 print(power(5))
 
 
@@ -37,6 +38,7 @@ def powers(x, n):
         n = n - 1
         s = s * x
     return s
+
 
 print(powers(5, 3))
 
@@ -48,11 +50,13 @@ def enroll(name, gender, age=6, city='Beijing'):
     print('age:', age)
     print('city:', city)
 
+
 enroll('LiFan', 'F')
 
 # 只有与默认参数不符的学生才需要提供额外的信息：
 enroll('Bob', 'M', 7)
 enroll('Adam', 'M', city='Tianjin')
+
 
 # 定义默认参数要牢记一点：默认参数必须指向不变对象！
 # def add_end(L=[]):  # 错误的
@@ -66,7 +70,9 @@ def add_end(l=None):
     l.append('END')
     return l
 
+
 print(add_end([1, 2, 34, 5, 6]))
+
 
 # 可变参数就是传入的参数个数是可变的
 
@@ -76,6 +82,7 @@ def calc(*numbers):
     for n in numbers:
         sums = sums + n * n
     return sums
+
 
 print(calc(1, 2))
 print(calc())
@@ -88,6 +95,7 @@ print(calc())
 def person(name, age, **kw):
     print('name:', name, 'age:', age, 'other:', kw)
 
+
 # 函数person除了必选参数name和age外，还接受关键字参数kw。在调用该函数时，可以只传入必选参数
 person('Michael', 30)
 
@@ -99,3 +107,52 @@ person('Adam', 45, gender='M', job='Engineer')
 # 注意kw获得的dict是extra的一份拷贝，对kw的改动不会影响到函数外的extra
 extra = {'city': 'Beijing', 'job': 'Engineer'}
 person('Jack', 24, city=extra['city'], job=extra['job'])
+
+# 上面复杂的调用可以用简化的写法
+extra = {'city': 'Beijing', 'job': 'Engineer'}
+person('Jack', 24, **extra)
+
+
+# 对于关键字参数，函数的调用者可以传入任意不受限制的关键字参数。至于到底传入了哪些，就需要在函数内部通过kw检查
+def person(name, age, **kw):
+    if 'city' in kw:
+        # 有city参数
+        pass
+    if 'job' in kw:
+        # 有job参数
+        pass
+    print('name:', name, 'age:', age, 'other:', kw)
+
+
+person('Jack', 24, city='Beijing', addr='Chaoyang', zipcode=123456)
+
+
+def person(name, age, *, city, job):
+    print(name, age, city, job)
+
+
+# 关键字参数**kw不同，命名关键字参数需要一个特殊分隔符*，*后面的参数被视为命名关键字参数。
+person('Jack', 24, city='Beijing', job='Engineer')
+
+
+# Python的函数具有非常灵活的参数形态，既可以实现简单的调用，又可以传入非常复杂的参数。
+#
+# 默认参数一定要用不可变对象，如果是可变对象，程序运行时会有逻辑错误！
+#
+# 要注意定义可变参数和关键字参数的语法：
+#
+# *args是可变参数，args接收的是一个list或tuple；
+#
+# **kw是关键字参数，kw接收的是一个dict。
+#
+# 以及调用函数时如何传入可变参数和关键字参数的语法：
+#
+# 可变参数既可以直接传入：func(1, 2, 3)，又可以先组装list或tuple，再通过*args传入：func(*(1, 2, 3))；
+#
+# 关键字参数既可以直接传入：func(a=1, b=2)，又可以先组装dict，再通过**kw传入：func(**{'a': 1, 'b': 2})。
+#
+# 使用*args和**kw是Python的习惯写法，当然也可以用其他参数名，但最好使用习惯用法。
+#
+# 命名的关键字参数是为了限制调用者可以传入的参数名，同时可以提供默认值。
+#
+# 定义命名的关键字参数在没有可变参数的情况下不要忘了写分隔符*，否则定义的将是位置参数
