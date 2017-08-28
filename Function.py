@@ -1,4 +1,6 @@
 # 调用一个函数，需要知道函数的名称和参数，比如求绝对值的函数abs，只有一个参数。
+from functools import reduce
+
 abs(-20)  # 输出绝对值
 
 # max函数可以接收多个参数，返回最大的那个
@@ -176,3 +178,62 @@ def fact_iter(num, product):
     if num == 1:
         return product
     return fact_iter(num - 1, num * product)
+
+
+def calc_sum(*args):
+    ax = 0
+    for n in args:
+        ax = ax + n
+    return ax
+
+
+# 如果不需要立刻求和，而是在后面的代码中
+def lazy_sum(*args):
+    def sum():
+        ax = 0
+        for n in args:
+            ax = ax + n
+        return ax
+
+    return sum
+
+
+# 当我们调用lazy_sum()时，返回的并不是求和结果，而是求和函数
+f = lazy_sum(1, 3, 5, 7, 9)
+
+print(f())
+
+
+def count():
+    fs = []
+    for i in range(1, 4):
+        def f():
+            return i * i
+
+        fs.append(f)
+    return fs
+
+
+f1, f2, f3 = count()
+print(f1(), f2(), f3())
+
+
+def count():
+    def f(j):
+        def g():
+            return j * j
+
+        return g
+
+    fs = []
+    for i in range(1, 4):
+        fs.append(f(i))  # f(i)立刻被执行，因此i的当前值被传入f()
+    return fs
+
+
+f1, f2, f3 = count()
+print(f1(), f2(), f3())
+
+# lambda 匿名函数
+print(list(map(lambda x: x * x, [1, 2, 3, 4, 5, 6, 7, 8, 9])))
+print(reduce(lambda x, y: x * 10 + y, [1, 2, 3, 4, 5, 6, 7, 8, 9]))
