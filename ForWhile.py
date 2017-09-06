@@ -1,4 +1,3 @@
-
 names = ['Michael', 'Bob', 'Tracy']
 for name in names:
     print(name)
@@ -11,7 +10,6 @@ print(s)
 
 # range(5)生成的序列是从0开始小于5的整数
 print(list(range(5)))
-
 
 s = 0
 for x in range(101):

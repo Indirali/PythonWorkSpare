@@ -1,4 +1,3 @@
-
 # list是一个有序集合，可以随时添加和删除其中的元素
 classmates = ["Michael", "Bob", "Tracy"]
 print(len(classmates))
@@ -60,10 +59,3 @@ print(t)
 t[2][0] = "X"
 t[2][1] = "Y"
 print(t)
-
-
-
-
-
-
-

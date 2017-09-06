@@ -13,9 +13,8 @@ print(sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower))
 # 要进行反向排序，不必改动key函数，可以传入第三个参数reverse=True
 print(sorted(['bob', 'about', 'Zoo', 'Credit'], key=str.lower, reverse=True))
 
-
 students = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
 
 print(sorted(students, key=itemgetter(0)))
-print(sorted(students, key=lambda t:t[1]))
+print(sorted(students, key=lambda t: t[1]))
 print(sorted(students, key=itemgetter(1), reverse=True))

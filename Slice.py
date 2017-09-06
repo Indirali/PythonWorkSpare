@@ -1,4 +1,3 @@
-
 # 切片 取前3个元素
 L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
 print(L[0:3])

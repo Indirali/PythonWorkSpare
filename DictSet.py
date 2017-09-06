@@ -1,4 +1,3 @@
-
 d = {'Michael': 95, 'Bob': 75, 'Tracy': 85}
 print(d['Michael'])
 
@@ -52,5 +51,5 @@ a.sort()  # 变完后不保存
 print(a)
 
 a = 'abc'
-print(a.replace('a', 'A'))    # 变完后不保存
+print(a.replace('a', 'A'))  # 变完后不保存
 print(a)

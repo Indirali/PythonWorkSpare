@@ -1,4 +1,3 @@
-
 # 转义命令\转义字符串
 print("I’m \"ok\"")
 print("I\'m learning\nPython.")
@@ -50,17 +49,15 @@ print(a)
 PI = 3.14
 
 # 除法 /除法计算结果是浮点数
-print(9/3)
-print(10/3)
+print(9 / 3)
+print(10 / 3)
 
 # 除法 //表示计算结果是整数
-print(9//3)
-print(10//3)
+print(9 // 3)
+print(10 // 3)
 
 # 数据格式化
 print("Hello, %s" % "world")
 print("Hi, %s, you have $%d." % ("Michael", 10000))
 
 # %d 整数  %f 浮点数  %s 字符串类型 %x 十六进制整数
-
-

@@ -312,6 +312,7 @@ def log(text):
 
     return decorator
 
+
 # 在面向对象（OOP）的设计模式中，decorator被称为装饰模式。
 # OOP的装饰模式需要通过继承和组合来实现，而Python除了能支持OOP的decorator外，直接从语法层次支持decorator。
 # Python的decorator可以用函数实现，也可以用类实现。
@@ -323,13 +324,17 @@ def log(func):
     def wrapper(*args, **kw):
         print('call %s():' % func.__name__)
         return func(*args, **kw)
+
     return wrapper
+
 
 @log
 def now():
     print('2015-3-25')
 
+
 now()
+
 
 def logger(text):
     def decorator(func):
@@ -337,18 +342,21 @@ def logger(text):
         def wrapper(*args, **kw):
             print('%s %s():' % (text, func.__name__))
             return func(*args, **kw)
+
         return wrapper
+
     return decorator
+
 
 @logger('DEBUG')
 def today():
     print('2015-3-25')
 
+
 today()
 print(today.__name__)
 
-
 # 偏函数
 print(int('12345'))
-print("八进制：",int('12345', base=8))
-print("十六进制：",int('12345', 16))
+print("八进制：", int('12345', base=8))
+print("十六进制：", int('12345', 16))
